@@ -2,218 +2,376 @@
    PÁGINA DE LOGIN
    ============================== */
 
-body {
-    background: #f5f7ff !important;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
+   html,
+   body {
+       min-height: 100%;
+   }
+   
+   body {
+       margin: 0;
+       background: #f5f7ff !important;
+       font-family: Arial, sans-serif;
+       overflow-x: hidden;
+   }
+   
+   
+   /* ==============================
+      ÁREA AZUL DECORATIVA
+      ============================== */
+   
+   body::before {
+       content: "";
+   
+       position: fixed;
+   
+       top: 0;
+       left: 0;
+   
+       width: 45%;
+       height: 100vh;
+   
+       background:
+           url("../img/logo 04.png") center 80px / 70% auto no-repeat,
+           linear-gradient(145deg, #001b5e, #02afff);
+   
+       border-radius: 0 45% 45% 0;
+   
+       z-index: 0;
+   }
+   
+   
+   /* ==============================
+      TEXTO DA ÁREA AZUL
+      ============================== */
+   
+   body::after {
+       content: "Bem-vindo(a)!";
+   
+       position: fixed;
+   
+       left: 8%;
+       top: 50%;
+   
+       transform: translateY(-50%);
+   
+       color: white;
+   
+       font-size: clamp(28px, 3vw, 42px);
+       font-weight: 700;
+   
+       z-index: 1;
+   }
+   
+   
+   /* ==============================
+      ÁREA PRINCIPAL
+      ============================== */
+   
+   main {
+       position: relative;
+       z-index: 2;
+   }
+   
+   
+   /* ==============================
+      POSIÇÃO DO CARD
+      ============================== */
+   
+   .row {
+       justify-content: flex-end !important;
+       padding-right: 6%;
+   }
+   
+   
+   /* ==============================
+      CARD
+      ============================== */
+   
+   .card {
+       border: none !important;
+   
+       border-radius: 16px !important;
+   
+       background-color: #ffffff;
+   
+       box-shadow:
+           0 12px 35px rgba(30, 60, 120, 0.15) !important;
+   }
+   
+   
+   .card-body {
+       padding: 40px !important;
+   }
+   
+   
+   /* ==============================
+      CABEÇALHO
+      ============================== */
+   
+   .card-body > .text-center {
+       margin-bottom: 32px !important;
+   }
+   
+   
+   .bi-person-circle {
+       color: #001b5e !important;
+       font-size: 65px;
+   }
+   
+   
+   .card-body h1 {
+       color: #123b78;
+   
+       font-weight: 700;
+   
+       margin-top: 10px;
+   }
+   
+   
+   .card-body h1 + p {
+       color: #64789b !important;
+   
+       margin-top: 8px;
+   }
+   
+   
+   /* ==============================
+      CAMPOS
+      ============================== */
+   
+   .form-label {
+       color: #123b78;
+   
+       font-weight: 600;
+   }
+   
+   
+   .input-group-text {
+       background-color: #f5f7ff;
+   
+       border: 1px solid #d8e1f2;
+   
+       color: #001b5e;
+   }
+   
+   
+   .form-control {
+       border: 1px solid #d8e1f2;
+   
+       padding: 12px;
+   }
+   
+   
+   .form-control:focus {
+       border-color: #6655dd;
+   
+       box-shadow:
+           0 0 0 0.2rem rgba(102, 85, 221, 0.15);
+   }
+   
+   
+   /* ==============================
+      BOTÃO
+      ============================== */
+   
+   .btn-primary {
+       background:
+           linear-gradient(
+               90deg,
+               #001b5e,
+               #02afff
+           ) !important;
+   
+       border: none !important;
+   
+       border-radius: 8px;
+   
+       padding: 12px;
+   
+       font-weight: 600;
+   
+       transition: 0.3s;
+   }
+   
+   
+   .btn-primary:hover {
+       background:
+           linear-gradient(
+               90deg,
+               #02afff,
+               #001b5e
+           ) !important;
+   }
+   
+   
+   /* ==============================
+      LINK VOLTAR
+      ============================== */
+   
+   .text-decoration-none {
+       color: #4d4fd3 !important;
+   }
+   
+   
+   .text-decoration-none:hover {
+       color: #3032a5 !important;
+   }
+   
+   
+   /* ==============================
+      TABLET
+      ============================== */
+   
+   @media (max-width: 991px) {
+   
+       body::before {
+           width: 38%;
+       }
+   
+       body::after {
+           left: 5%;
+   
+           font-size: 30px;
+       }
+   
+       .row {
+           padding-right: 3%;
+       }
+   
+       .card-body {
+           padding: 32px !important;
+       }
+   }
+   
+   
+   /* ==============================
+      CELULAR
+      ============================== */
+   
+   @media (max-width: 768px) {
+   
+       body {
+           background: #f5f7ff !important;
+       }
+   
+   
+       body::before {
+        position: absolute;
 
-
-/* ==============================
-   ÁREA AZUL LATERAL
-   ============================== */
-
-body::before {
-    content: "";
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 45%;
-    height: 100%;
-    background:
-        url("../img/logo\ 04.png") calc(40% - 50px) 10% / 600px  no-repeat,
-        linear-gradient(145deg, #001b5e, #02afff);
-    z-index: 0;
-    border-radius: 0 45% 45% 0;
-}
-
-
-/* ==============================
-   POSIÇÃO DO LOGIN
-   ============================== */
-
-main {
-    position: relative;
-    z-index: 1;
-}
-
-
-/* Faz o conteúdo ficar mais para a direita */
-.row {
-    justify-content: flex-end !important;
-    padding-right: 10%;
-}
-
-
-/* ==============================
-   CARD
-   ============================== */
-
-.card {
-    border: none !important;
-    border-radius: 16px !important;
-    background-color: #ffffff;
-    box-shadow: 0 12px 35px rgba(30, 60, 120, 0.15) !important;
-}
-
-.card-body {
-    padding: 40px !important;
-}
-
-
-/* ==============================
-   CABEÇALHO DO LOGIN
-   ============================== */
-
-.card-body>.text-center {
-    margin-bottom: 32px !important;
-}
-
-
-/* Ícone */
-.bi-person-circle {
-    color: #001b5e !important;
-    font-size: 65px;
-}
-
-
-/* Título */
-.card-body h1 {
-    color: #123b78;
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-
-/* Subtítulo */
-.card-body h1+p {
-    color: #64789b !important;
-    margin-top: 8px;
-}
-
-
-/* ==============================
-   CAMPOS
-   ============================== */
-
-.form-label {
-    color: #123b78;
-    font-weight: 600;
-}
-
-.input-group-text {
-    background-color: #f5f7ff;
-    border: 1px solid #d8e1f2;
-    color: #001b5e;
-}
-
-.form-control {
-    border: 1px solid #d8e1f2;
-    padding: 12px;
-}
-
-.form-control:focus {
-    border-color: #6655dd;
-    box-shadow: 0 0 0 0.2rem rgba(102, 85, 221, 0.15);
-}
-
-
-/* ==============================
-   BOTÃO
-   ============================== */
-
-.btn-primary {
-    background: linear-gradient(90deg, #001b5e, #02afff) !important;
-    border: none !important;
-    border-radius: 8px;
-    padding: 12px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background: linear-gradient(90deg, #02afff, #001b5e) !important;
-}
-
-
-/* ==============================
-   LINK VOLTAR
-   ============================== */
-
-.text-decoration-none {
-    color: #4d4fd3 !important;
-}
-
-.text-decoration-none:hover {
-    color: #3032a5 !important;
-}
-
-
-/* ==============================
-   TEXTO CONECTA CONTAGEM
-   ============================== */
-
-.card-body~p {
-    color: #60759b !important;
-}
-
-
-/* ==============================
-   RESPONSIVO
-   ============================== */
-
-@media (max-width: 768px) {
-
-    body::before {
         width: 100%;
-        height: 180px;
-        border-radius: 0 0 50% 50%;
+        height: 160px;
+
+        background-color: #0077b6;
+
+        background-image: url("../img/logo 04.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 180px auto;
+
+        border-radius: 0 0 40px 40px;
     }
 
-    .row {
-        justify-content: center !important;
-        padding-right: 0;
+    body::after {
+        display: none;
     }
 
-    .card {
-        margin-top: 80px;
+    main {
+        padding-top: 120px;
     }
-
-    .card-body {
-        padding: 30px !important;
-    }
-}
-
-@media (max-width: 768px) {
-
-    body::before {
-        width: 100%;
-        height: 180px;
-        border-radius: 0 0 50% 50%;
-    }
-
-    .row {
-        justify-content: center !important;
-        padding-right: 0;
-    }
-
-    .card {
-        margin-top: 80px;
-    }
-
-    .card-body {
-        padding: 30px !important;
-    }
-}
-
-/* Texto da área azul */
-body::after {
-    content: "Bem-vindo(a)!";
-    position: fixed;
-    left: 15%;
-    top: 50%;
-    color: #ffffff;
-    font-size: 42px;
-    font-weight: 750;
-    z-index: 2;
-}
+   
+   
+       body::after {
+           display: none;
+       }
+   
+   
+       main {
+           padding-top: 120px;
+       }
+   
+   
+       .row {
+           justify-content: center !important;
+   
+           padding-right: 0;
+   
+           margin: 0;
+       }
+   
+   
+       .col-md-6,
+       .col-lg-4 {
+           width: 100%;
+   
+           max-width: 420px;
+   
+           padding-left: 15px;
+           padding-right: 15px;
+       }
+   
+   
+       .card {
+           margin-top: 0;
+       }
+   
+   
+       .card-body {
+           padding: 28px 22px !important;
+       }
+   
+   
+       .bi-person-circle {
+           font-size: 55px;
+       }
+   
+   
+       .card-body h1 {
+           font-size: 1.6rem;
+       }
+   
+   }
+   
+   
+   /* ==============================
+      CELULARES PEQUENOS
+      ============================== */
+   
+   @media (max-width: 480px) {
+   
+       body::before {
+           height: 135px;
+   
+           background-size: 150px auto;
+       }
+   
+   
+       main {
+           padding-top: 100px;
+       }
+   
+   
+       .card-body {
+           padding: 24px 18px !important;
+       }
+   
+   
+       .card-body h1 {
+           font-size: 1.4rem;
+       }
+   
+   
+       .card-body h1 + p {
+           font-size: 0.95rem;
+       }
+   
+   
+       .form-control {
+           padding: 10px;
+       }
+   
+   
+       .btn-primary {
+           padding: 11px;
+       }
+   
+   }
